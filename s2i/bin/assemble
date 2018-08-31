@@ -8,9 +8,13 @@ cp -Rf /tmp/src/. ./
 echo "---> Building Spring Boot application from source"
 echo "--> # MVN_ARGS = $MVN_ARGS"
 if [ -f "mvnw" ]; then
+  echo "---> Building with mvnw"
   ./mvnw clean install $MVN_ARGS
+  echo "done building"
 else
+  echo "---> Building without mvnw"
   mvn clean install $MVN_ARGS
+  echo "done building"
 fi
 
 # Fix source directory permissions
